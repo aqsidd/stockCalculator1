@@ -14,27 +14,30 @@ public class StockCalculator1 {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private String exercise;
-    private double weight;
-    private int reps;
+    private double principle;
+    private int days;
+    private double growthRate;
     private LocalDateTime date;
     private int userId;
+    private double value;
 
-    public StockCalculator1(String exercise, double weight, int reps, int userId) {
-        this.exercise = exercise;
-        this.weight = weight;
-        this.reps = reps;
+    public StockCalculator1(double principle, int days, double growthRate, int userId) {
+        this.principle = principle;
+        this.days = days;
+        this.growthRate = growthRate;
         this.userId = userId;
         date = LocalDateTime.now();
+        value = principle * Math.pow(1+growthRate/100, days);
     }
 
     @NonNull
     @Override
     public String toString() {
-        return  exercise + '\n' +
-                "weight:" + weight + '\n' +
-                "reps:" + reps + '\n' +
-                "date:" + date.toString() + '\n' +
+        return  "principle: " + principle + '\n' +
+                "days: " + days + '\n' +
+                "growthRate: " + growthRate + '\n' +
+                "date: " + date.toString() + '\n' +
+                "Value: " + value + '\n' +
                 "============\n";
     }
 
@@ -42,13 +45,13 @@ public class StockCalculator1 {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StockCalculator1 stockCalculator1 = (StockCalculator1) o;
-        return id == stockCalculator1.id && Double.compare(weight, stockCalculator1.weight) == 0 && reps == stockCalculator1.reps && userId == stockCalculator1.userId && Objects.equals(exercise, stockCalculator1.exercise) && Objects.equals(date, stockCalculator1.date);
+        StockCalculator1 that = (StockCalculator1) o;
+        return id == that.id && Double.compare(principle, that.principle) == 0 && days == that.days && Double.compare(growthRate, that.growthRate) == 0 && userId == that.userId && Double.compare(value, that.value) == 0 && Objects.equals(date, that.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, exercise, weight, reps, date, userId);
+        return Objects.hash(id, principle, days, growthRate, date, userId, value);
     }
 
     public int getId() {
@@ -59,28 +62,28 @@ public class StockCalculator1 {
         this.id = id;
     }
 
-    public String getExercise() {
-        return exercise;
+    public double getPrinciple() {
+        return principle;
     }
 
-    public void setExercise(String exercise) {
-        this.exercise = exercise;
+    public void setPrinciple(double principle) {
+        this.principle = principle;
     }
 
-    public double getWeight() {
-        return weight;
+    public int getDays() {
+        return days;
     }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
+    public void setDays(int days) {
+        this.days = days;
     }
 
-    public int getReps() {
-        return reps;
+    public double getGrowthRate() {
+        return growthRate;
     }
 
-    public void setReps(int reps) {
-        this.reps = reps;
+    public void setGrowthRate(double growthRate) {
+        this.growthRate = growthRate;
     }
 
     public LocalDateTime getDate() {
@@ -97,5 +100,13 @@ public class StockCalculator1 {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
     }
 }

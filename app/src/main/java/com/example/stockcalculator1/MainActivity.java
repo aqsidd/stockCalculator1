@@ -42,11 +42,11 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     private StockCalculator1Repository repository;
-    String mExercise = "";
+    double principle=0.0;
 
-    double mWeight = 0.0;
+    int days =0;
 
-    int mReps = 0;
+    double growthRate = 0.0;
 
     private int loggedInUserId = -1;
     private User user;
@@ -199,11 +199,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void insertStockCalculator1Record(){
-        if(mExercise.isEmpty()){
+        if(principle==0){
             return;
         }
 
-        StockCalculator1 log = new StockCalculator1(mExercise, mWeight, mReps, loggedInUserId);
+        StockCalculator1 log = new StockCalculator1(principle, days, growthRate, loggedInUserId);
         repository.insertStockCalculator1(log);
 
     }
@@ -231,28 +231,25 @@ public class MainActivity extends AppCompatActivity {
 
     private void getInformationFromDisplay(){
 
-        mExercise = binding.exerciseInputEditText.getText().toString();
-
         try{
-            mWeight = Double.parseDouble(binding.weightInputEditText.getText().toString());
+            principle = Double.parseDouble(binding.exerciseInputEditText.getText().toString());
         } catch (NumberFormatException e){
             Log.d(TAG, "ERROR1");
         }
 
-
         try{
-            mReps = Integer.parseInt(binding.repsInputEditText.getText().toString());
+            days = Integer.parseInt(binding.weightInputEditText.getText().toString());
         } catch (NumberFormatException e){
             Log.d(TAG, "ERROR2");
         }
-
+        
+        try{
+            growthRate = Double.parseDouble(binding.repsInputEditText.getText().toString());
+        } catch (NumberFormatException e){
+            Log.d(TAG, "ERROR3");
+        }
 
     }
-
-
-
-
-
 
 
 
