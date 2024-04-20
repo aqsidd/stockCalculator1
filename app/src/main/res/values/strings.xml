@@ -6,4 +6,11 @@
     <string name="password">password</string>
     <string name="username">username</string>
     <string name="logged_in">LOGGED IN</string>
+    <string name="interest_earned_per_day">Interest earned per day</string>
+    <string name="log">log</string>
+    <string name="growth_rate">Growth Rate:</string>
+    <string name="how_many_days_invested">How many days invested</string>
+    <string name="days">Days:</string>
+    <string name="initial_amount_of_money">Initial amount of money</string>
+    <string name="principle">Principle:</string>
 </resources>

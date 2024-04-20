@@ -36,8 +36,8 @@ public class StockCalculator1 {
         return  "principle: " + principle + '\n' +
                 "days: " + days + '\n' +
                 "growthRate: " + growthRate + '\n' +
-                "date: " + date.toString() + '\n' +
                 "Value: " + value + '\n' +
+                "date: " + date.toString() + '\n' +
                 "============\n";
     }
 

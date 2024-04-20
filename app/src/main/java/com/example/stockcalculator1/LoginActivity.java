@@ -18,7 +18,7 @@ import com.example.stockcalculator1.database.StockCalculator1Repository;
 import com.example.stockcalculator1.database.entities.User;
 import com.example.stockcalculator1.databinding.ActivityLoginBinding;
 
-public class LoginActivity extends AppCompatActivity {
+public class  LoginActivity extends AppCompatActivity {
 
 
     private ActivityLoginBinding binding;
