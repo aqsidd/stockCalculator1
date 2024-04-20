@@ -3,4 +3,7 @@
     <string name="no_logs_to_be_shown">no logs to be shown</string>
     <string name="login">login</string>
     <string name="welcome_to_stock_calculator_please_sign_in">Welcome to Stock Calculator. Please sign in.</string>
+    <string name="password">password</string>
+    <string name="username">username</string>
+    <string name="logged_in">LOGGED IN</string>
 </resources>
